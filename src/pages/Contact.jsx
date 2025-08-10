@@ -50,10 +50,10 @@ function Contact() {
     },
     heroSection: {
       textAlign: 'center',
-      padding: '40px 10px',
+      padding: '90px 10px 40px',
       marginBottom: '30px',
       '@media (min-width: 768px)': {
-        padding: '60px 20px',
+        padding: '110px 20px 40px',
         marginBottom: '40px',
       },
     },
