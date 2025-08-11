@@ -169,24 +169,24 @@ const Home = () => {
 
   const achievements = [
     {
-      text: "Deployed 15+ AI-powered products across healthcare, fintech, edtech, and manufacturing.",
-      color: "#0A2647"
+      text: "Successfully Delivered 100+ Global GenAI Projects",
+      // color: "#0A2647"
     },
     {
-      text: "Clients in 6 countries — with seamless deployment across cloud and edge.",
-      color: "#134886"
+      text: "Delivering 12+ GenAI Pipelines Every Month",
+      // color: "#134886"
     },
     {
-      text: "98% API uptime and auto-scalable infrastructure for mission-critical workloads.",
-      color: "#1C69C4"
+      text: "Fine-Tuned the World’s Most Powerful Open-Source Model – DeepSeek V3",
+      // color: "#1C69C4"
     },
     {
-      text: "Partnered with leading research institutions for AI innovation in assistive tech.",
-      color: "rgba(10, 38, 71, 0.10)"
+      text: "Built an Agentic Legal Document Drafting Suite for AgreeUpon.ai (Canada)",
+      // color: "rgba(10, 38, 71, 0.10)"
     },
     {
-      text: "Selected for India's Top 100 DeepTech Startups list, 2024.",
-      color: "rgba(10, 38, 71, 0.10)"
+      text: "Distilled & Optimized Vosk Multilingual Automatic Speech Recognition (ASR) Model",
+      // color: "rgba(10, 38, 71, 0.10)"
     }
   ];
 
