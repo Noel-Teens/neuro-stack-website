@@ -193,7 +193,7 @@ function Contact() {
       borderRadius: '12px',
       border: '2px solid #ddd',
       fontSize: 'clamp(14px, 2vw, 16px)',
-      minHeight: '120px',
+      minHeight: '80px',
       resize: 'vertical',
       background: 'white',
       boxSizing: 'border-box',
@@ -314,7 +314,7 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="Please describe your project or inquiry in detail..."
                     required
-                    rows="5"
+                    rows="3"
                   ></textarea>
                 </div>
                 <motion.button
