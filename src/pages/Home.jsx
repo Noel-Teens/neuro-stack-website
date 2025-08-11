@@ -187,7 +187,19 @@ const Home = () => {
     {
       text: "Distilled & Optimized Vosk Multilingual Automatic Speech Recognition (ASR) Model",
       // color: "rgba(10, 38, 71, 0.10)"
-    }
+    },
+    {
+      text: "Integrated Accessible Speech Analysis into Mobile Applications",
+      // color: "rgba(10, 38, 71, 0.10)"
+    },
+    {
+      text: "Developed WorkEasy India PoC with Advanced Semantic AI Search",
+      // color: "rgba(10, 38, 71, 0.10)"
+    },
+    {
+      text: "Advanced Research Contributions in Machine Learning",
+      // color: "rgba(10, 38, 71, 0.10)"
+    },
   ];
 
   
