@@ -489,7 +489,7 @@ function Products() {
       {/* {snackbarVisible && (
         <div style={styles.snackbar}>
           <span>
-            <span>ⓘ  </span>
+            {/* <span>ⓘ  </span> */}
             Coming Soon
           </span>
           <button
