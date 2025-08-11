@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // <-- Added useEffect import
 import frame4 from "../Assets/frame4.png";
 import frame2 from "../Assets/frame2.png";
 
 function Contact() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,6 +12,14 @@ function Contact() {
     subject: '',
     message: ''
   });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -44,18 +53,11 @@ function Contact() {
       padding: '20px',
       maxWidth: '1400px',
       margin: '0 auto',
-      '@media (min-width: 768px)': {
-        padding: '40px 20px',
-      },
     },
     heroSection: {
       textAlign: 'center',
       padding: '90px 10px 40px',
       marginBottom: '30px',
-      '@media (min-width: 768px)': {
-        padding: '110px 20px 40px',
-        marginBottom: '40px',
-      },
     },
     heroTitle: {
       color: '#FF6B00',
@@ -64,9 +66,6 @@ function Contact() {
       marginBottom: '15px',
       textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
       lineHeight: '1.2',
-      '@media (min-width: 768px)': {
-        marginBottom: '20px',
-      },
     },
     heroSubtitle: {
       color: 'white',
@@ -84,56 +83,36 @@ function Contact() {
       backgroundPosition: 'center',
       borderRadius: '20px',
       padding: '20px',
+      width: '100%',
       maxWidth: '1200px',
       margin: '0 auto',
       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-      '@media (min-width: 768px)': {
-        borderRadius: '40px',
-        padding: '40px',
-      },
     },
     contactGrid: {
       display: 'grid',
-      gridTemplateColumns: '1fr',
-      gap: '30px',
+      gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+      gap: '40px',
       background: 'transparent',
       padding: '20px',
       borderRadius: '20px',
-      '@media (min-width: 768px)': {
-        gap: '40px',
-        padding: '40px',
-        borderRadius: '30px',
-      },
-      '@media (min-width: 1024px)': {
-        gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-      },
     },
     contactInfo: {
       padding: '20px',
       borderRadius: '20px',
       background: 'rgba(255, 255, 255, 0.9)',
       backdropFilter: 'blur(10px)',
-      '@media (min-width: 768px)': {
-        padding: '30px',
-      },
     },
     infoTitle: {
       color: '#0A2647',
       fontSize: 'clamp(24px, 4vw, 32px)',
       fontWeight: '700',
       marginBottom: '15px',
-      '@media (min-width: 768px)': {
-        marginBottom: '20px',
-      },
     },
     infoSubtitle: {
       color: '#666',
       fontSize: 'clamp(14px, 2.5vw, 18px)',
       marginBottom: '30px',
       lineHeight: '1.6',
-      '@media (min-width: 768px)': {
-        marginBottom: '40px',
-      },
     },
     infoItem: {
       marginBottom: '20px',
@@ -144,11 +123,6 @@ function Contact() {
       padding: '15px',
       borderRadius: '15px',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
-      '@media (min-width: 768px)': {
-        marginBottom: '30px',
-        gap: '20px',
-        padding: '20px',
-      },
     },
     infoIcon: {
       width: '40px',
@@ -161,11 +135,6 @@ function Contact() {
       color: 'white',
       fontSize: '20px',
       flexShrink: 0,
-      '@media (min-width: 768px)': {
-        width: '50px',
-        height: '50px',
-        fontSize: '24px',
-      },
     },
     infoContent: {
       flex: 1,
@@ -187,32 +156,20 @@ function Contact() {
       borderRadius: '20px',
       background: 'rgba(255, 255, 255, 0.9)',
       backdropFilter: 'blur(10px)',
-      '@media (min-width: 768px)': {
-        padding: '30px',
-      },
     },
     formTitle: {
       color: '#0A2647',
       fontSize: 'clamp(24px, 4vw, 32px)',
       fontWeight: '700',
       marginBottom: '10px',
-      '@media (min-width: 768px)': {
-        marginBottom: '15px',
-      },
     },
     formSubtitle: {
       color: '#666',
       fontSize: 'clamp(14px, 2.5vw, 18px)',
       marginBottom: '25px',
-      '@media (min-width: 768px)': {
-        marginBottom: '30px',
-      },
     },
     formGroup: {
       marginBottom: '20px',
-      '@media (min-width: 768px)': {
-        marginBottom: '25px',
-      },
     },
     label: {
       display: 'block',
@@ -220,9 +177,6 @@ function Contact() {
       fontSize: 'clamp(14px, 2.5vw, 18px)',
       fontWeight: '500',
       marginBottom: '8px',
-      '@media (min-width: 768px)': {
-        marginBottom: '10px',
-      },
     },
     input: {
       width: '100%',
@@ -230,17 +184,8 @@ function Contact() {
       borderRadius: '12px',
       border: '2px solid #ddd',
       fontSize: 'clamp(14px, 2vw, 16px)',
-      transition: 'all 0.3s ease',
       background: 'white',
       boxSizing: 'border-box',
-      '@media (min-width: 768px)': {
-        padding: '15px',
-      },
-      ':focus': {
-        borderColor: '#0A2647',
-        boxShadow: '0 0 0 2px rgba(10, 38, 71, 0.2)',
-        outline: 'none',
-      },
     },
     textarea: {
       width: '100%',
@@ -253,15 +198,6 @@ function Contact() {
       background: 'white',
       boxSizing: 'border-box',
       fontFamily: 'inherit',
-      '@media (min-width: 768px)': {
-        padding: '15px',
-        minHeight: '150px',
-      },
-      ':focus': {
-        borderColor: '#0A2647',
-        boxShadow: '0 0 0 2px rgba(10, 38, 71, 0.2)',
-        outline: 'none',
-      },
     },
     submitButton: {
       background: '#0A2647',
@@ -275,15 +211,6 @@ function Contact() {
       width: '100%',
       marginTop: '15px',
       transition: 'all 0.3s ease',
-      '@media (min-width: 768px)': {
-        padding: '15px 40px',
-        borderRadius: '40px',
-        marginTop: '20px',
-      },
-      ':hover': {
-        background: '#083158',
-        transform: 'translateY(-2px)',
-      },
     },
   };
 
@@ -316,40 +243,28 @@ function Contact() {
               <p style={styles.infoSubtitle}>
                 Reach out to us directly or fill out the form and we'll get back to you promptly.
               </p>
-
-              <div style={styles.infoItems}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  style={styles.infoItem}
-                >
-                  <div style={styles.infoIcon}>📞</div>
-                  <div style={styles.infoContent}>
-                    <h3 style={styles.infoLabel}>Call Us</h3>
-                    <p style={styles.infoText}>+91 6382624227</p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  style={styles.infoItem}
-                >
-                  <div style={styles.infoIcon}>✉️</div>
-                  <div style={styles.infoContent}>
-                    <h3 style={styles.infoLabel}>Email Us</h3>
-                    <p style={styles.infoText}>business@neurostack.in</p>
-                  </div>
-                </motion.div>
-              </div>
+              <motion.div whileHover={{ scale: 1.02 }} style={styles.infoItem}>
+                <div style={styles.infoIcon}>📞</div>
+                <div style={styles.infoContent}>
+                  <h3 style={styles.infoLabel}>Call Us</h3>
+                  <p style={styles.infoText}>+91 6382624227</p>
+                </div>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.02 }} style={styles.infoItem}>
+                <div style={styles.infoIcon}>✉️</div>
+                <div style={styles.infoContent}>
+                  <h3 style={styles.infoLabel}>Email Us</h3>
+                  <p style={styles.infoText}>info@neurostack.in</p>
+                </div>
+              </motion.div>
             </div>
 
             {/* Contact Form */}
             <div style={styles.contactForm}>
               <h2 style={styles.formTitle}>Send Us a Message</h2>
               <p style={styles.formSubtitle}>Tell us about your project and needs</p>
-
               <form name="contact" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="contact" />
-
                 <div style={styles.formGroup}>
                   <label style={styles.label} htmlFor="name">Full Name *</label>
                   <input
@@ -363,7 +278,6 @@ function Contact() {
                     required
                   />
                 </div>
-
                 <div style={styles.formGroup}>
                   <label style={styles.label} htmlFor="email">Email Address *</label>
                   <input
@@ -377,7 +291,6 @@ function Contact() {
                     required
                   />
                 </div>
-
                 <div style={styles.formGroup}>
                   <label style={styles.label} htmlFor="subject">Subject *</label>
                   <input
@@ -391,7 +304,6 @@ function Contact() {
                     required
                   />
                 </div>
-
                 <div style={styles.formGroup}>
                   <label style={styles.label} htmlFor="message">Message *</label>
                   <textarea
@@ -405,7 +317,6 @@ function Contact() {
                     rows="5"
                   ></textarea>
                 </div>
-
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
