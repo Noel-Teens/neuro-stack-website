@@ -151,20 +151,20 @@ const Home = () => {
 
   const testimonials = [
     {
-      text: "Their custom LLM saved us over 40 hours a week in manual work. And their team? Incredibly responsive and thoughtful.",
-      author: "Ananya Rao",
-      position: "COO, LexSecure LegalTech"
+      text: "The team is very intelligent and knowledgable, very few have good grip on LLMs and they do have very deep subject knowledge. If given the roadmap clearly at the initial stages they will bring exponential results, otherwise they can also overkill out of the passion towards their work.",
+      author: "ajay shokar",
+      position: "CEO - APPit & Workisy"
     },
     {
-      text: "We integrated their API for image captioning in under a day — and it scaled beautifully. Our team was blown away by the accuracy.",
-      author: "Rajat Mehra",
+      text: "Working with NeuroStack has been a great experience. Their skills are top-notch (4.5/5), availability is excellent (5/5), and communication is strong (4.5/5). A reliable and capable professional to work with.",
+      author: "Araving Gajjela",
       position: "CTO, VizTrack Analytics"
     },
-    {
-      text: "Honestly, I thought AI was out of our league. But their edge-ready posture system transformed our physiotherapy platform. It just works.",
-      author: "Dr. Neha Balan",
-      position: "Co-founder, MoviThera Health"
-    }
+    // {
+    //   text: "Honestly, I thought AI was out of our league. But their edge-ready posture system transformed our physiotherapy platform. It just works.",
+    //   author: "Dr. Neha Balan",
+    //   position: "Co-founder, MoviThera Health"
+    // }
   ];
 
   const achievements = [
@@ -331,154 +331,93 @@ const Home = () => {
       </motion.section>
 
       {/* Services Preview */}
-      <section className="services-preview" ref={servicesRef} style={{paddingBottom: isMobile? '0px':'60px'}}>
-        <motion.h2
-          // initial={{ opacity: 0, y: 30 }}
-          // whileInView={{ opacity: 1, y: 0 }}
-          // viewport={{ once: true }}
-          // transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          What We Offer
-        </motion.h2>
-
-        <motion.div
-          className="services-grid"
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.2 }}
-          
-        >
+      <section className="services-preview">
+        <h2>What We Offer</h2>
+        <div className="services-grid">
           {services.map((service, index) => (
             <motion.div
               key={index}
               className="service-card"
-              // variants={scaleIn}
-              whileHover={{
-                scale: 1.05,
-                rotateY: 5,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-                transition: { duration: 0.3 }
-              }}
-              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 * index, duration: 0.5 }}
               style={{
-                background: '#FEFFF3',
-                padding: isMobile ? '20px' : '25px',
-                borderRadius: isMobile ? '20px' : '30px',
-                height: isMobile ? 'auto' : '402px',
-                minHeight: isMobile ? '350px' : '402px',
-                maxWidth: isMobile ? '100%' : '328px',
-                width: '100%',
-                flexDirection: 'column',
-                gap: isMobile ? '15px' : '20px',
-                display: 'flex',
+                background: "#FEFFF3",
+                padding: "25px",
+                borderRadius: "30px",
+                height: "402px",
+                width: "328px",
+                flexDirection: "column",
+                gap: "20px",
+                display: "flex",
                 justifyContent: "space-evenly",
-                cursor: 'pointer',
-                boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
-                margin: isMobile ? '0 auto 20px' : '0'
               }}
             >
-              <motion.div
+              <div
                 style={{
                   height: "40px",
-                  maxWidth: isMobile ? "100%" : "277px",
-                  width: "100%",
-                  background: '#FF9C55',
-                  borderRadius: isMobile ? '30px' : '40px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: isMobile ? '8px' : '10px',
-                  padding: isMobile ? '0 10px' : '0'
+                  width: "277px",
+                  background: "#FF9C55",
+                  borderRadius: "40px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
                 }}
-                whileHover={{ scale: 1.02 }}
               >
-                <motion.div
+                <div
                   style={{
-                    height: '40px',
-                    width: '40px',
-                    borderRadius: '100%',
-                    background: '#FFCEAA',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    paddingTop:'10px'
-                  }}
-                  whileHover={{
-                    rotate: 360,
-                    transition: { duration: 0.6 }
+                    height: "40px",
+                    width: "40px",
+                    borderRadius: "100%",
+                    background: "#FFCEAA",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    paddingTop: "10px",
                   }}
                 >
                   <h3>{index + 1}</h3>
-                </motion.div>
-                <h3 style={{paddingTop:'10px'}}>{service.title}</h3>
-              </motion.div>
-
-              <motion.div
+                </div>
+                <h3 style={{ paddingTop: "10px" }}>{service.title}</h3>
+              </div>
+              <div
                 style={{
-                  maxWidth: isMobile ? '100%' : '277px',
-                  width: '100%',
-                  height: isMobile ? '100px' : '124px',
-                  borderRadius: isMobile ? "15px" : "20px",
+                  width: "277px",
+                  height: "124px",
+                  borderRadius: "20px",
                   backgroundImage: service.image,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-                whileHover={{
-                  // scale: isMobile ? 1.02 : 1.05,
-                   transition: { duration: 0.3 }
-                }}
-              />
-
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                style={{
-                  fontSize: isMobile ? '13px' : '14px',
-                  lineHeight: '1.5',
-                  textAlign: 'center',
-                  color: '#666',
-                  padding: isMobile ? '0 5px' : '0',
-                  margin: isMobile ? '10px 0' : '15px 0'
-                }}
-              >
-                {service.description}
-              </motion.p>
+              ></div>
+              <p>{service.description}</p>
             </motion.div>
           ))}
-
           <motion.div
             className="explore-all-services"
-            // variants={fadeInUp}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-              transition: { duration: 0.3 }
-            }}
-            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius:'40px',
-              height:'50px',
-              maxWidth:'277px',
-              width: '100%',
-              marginTop: isMobile ? '20px' : '180px',
-              marginLeft: isMobile?'10px' :'40px',
-              cursor:'pointer',
-              boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "40px",
+              height: "50px",
+              width: "277px",
+              marginTop: "180px",
+              marginLeft: "40px",
+              cursor: "pointer",
             }}
-            onClick={() => window.location.href = './services'}
           >
-            <motion.div whileHover={{ x: 5 }}>
-              <p style={{marginTop:'13px'}}>Explore All Services →</p>
-            </motion.div>
+            <Link to="/services" className="explore-link">
+              Explore All Services →
+            </Link>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Testimonials */}
@@ -570,7 +509,7 @@ const Home = () => {
           overflow: "hidden",
           width: "100%",
           padding: "64px 0",}}>
-        <h2 style={{marginLeft:"600px"}}>Our Achievements</h2>
+        <h2 style={{marginLeft: isMobile?"60px" :"600px"}}>Our Achievements</h2>
         <div style={{
   margin:" 0 auto",
   padding: "0 20px",
@@ -585,7 +524,7 @@ const Home = () => {
                   alignItems: "center",
                   gap: "20px",
                   marginBottom: "32px",
-                  marginLeft: "122px",
+                  marginLeft: isMobile?"30px":"122px",
                 }}
                 initial={{ opacity: 0.3 }}
                 animate={{
@@ -597,7 +536,7 @@ const Home = () => {
                 <div style={{
                   width: "28px",
                   height: "28px",
-                  background: achievement.color || "#D9D9D9",
+                  background: "rgb(217, 217, 217)",
                   flexShrink: "0",
                 }} />
                 <div style={{
