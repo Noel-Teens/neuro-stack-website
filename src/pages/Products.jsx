@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { FaServer, FaBrain, FaRunning } from 'react-icons/fa';
 import book from "../Assets/Frame3.png";
-import product1 from "../Assets/api-inferencing.png";
+import product1 from "../Assets/api_inferencing.png";
 import product2 from "../Assets/LLM.png";
 import product3 from "../Assets/pose-estimation.png";
 
@@ -444,6 +444,49 @@ function Products() {
       
       {/* snackbar content */}
       {snackbarVisible && (
+  <div
+    style={{
+      background: '#ff9800', // bright orange for visibility
+      color: 'white',
+      padding: '16px 24px',
+      borderRadius: '8px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      fontSize: '18px', // bigger text
+      fontWeight: 'bold',
+      position: 'fixed',
+      bottom: '20px',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+      zIndex: 9999,
+      animation: 'popIn 0.3s ease',
+      minWidth: '300px',
+    }}
+  >
+    <span>
+      <span style={{ fontSize: '22px', marginRight: '8px' }}>ⓘ</span>
+      Coming Soon
+    </span>
+    <button
+      onClick={() => setSnackbarVisible(false)}
+      style={{
+        background: 'transparent',
+        border: 'none',
+        color: 'white',
+        cursor: 'pointer',
+        fontSize: '20px',
+        fontWeight: 'bold',
+        marginLeft: '10px',
+      }}
+    >
+      ✕
+    </button>
+  </div>
+)}
+
+      {/* {snackbarVisible && (
         <div style={styles.snackbar}>
           <span>
             <span>ⓘ  </span>
@@ -464,7 +507,7 @@ function Products() {
             ✕
           </button>
         </div>
-      )}
+      )} */}
       
       {/* Call to Action Section */}
       <motion.div
