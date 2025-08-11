@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import bgimg2 from "../Assets/background1-min.jpg"
-import bgimg3 from "../Assets/background2-min.jpg"
+import bgimg2 from "../Assets/background1.jpg"
+import bgimg3 from "../Assets/background2.jpg"
 import profileImg1 from "../Assets/about1.jpg"
 import profileImg2 from "../Assets/about2.jpg"
 import book from "../Assets/Frame3.png"

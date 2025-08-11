@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { px } from 'framer-motion';
 
 function Navbar() {
   const location = useLocation();
@@ -57,6 +58,11 @@ function Navbar() {
       >
         {/* Logo */}
         <div style={{ textAlign: 'center' }}>
+          <img src="logo.png" alt="" style={{
+            width: '35px',
+            height: '28px',
+            marginRight: '5px'
+          }} />
           <span
             style={{
               color: '#0A2647',
