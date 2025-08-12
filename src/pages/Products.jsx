@@ -221,7 +221,6 @@ function Products() {
       position: isMobile ? 'relative' : 'absolute',
       right: isMobile ? 'auto' : '60px',
       top: isMobile ? 'auto' : '43.50px',
-      background: '#D9D9D9',
       borderRadius: '20px',
       marginLeft: isMobile ? '0' : '60px',
       margin: isMobile ? '30px auto 20px' : '0',
