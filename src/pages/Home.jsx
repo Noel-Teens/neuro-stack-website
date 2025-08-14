@@ -152,52 +152,70 @@ const Home = () => {
   const testimonials = [
     {
       text: "The team is very intelligent and knowledgable, very few have good grip on LLMs and they do have very deep subject knowledge. If given the roadmap clearly at the initial stages they will bring exponential results, otherwise they can also overkill out of the passion towards their work.",
-      author: "Ajay Shokar",
+      author: "Ajay Shokar,",
       position: "Jobkart Canada"
     },
     {
       text: "Working with NeuroStack has been a great experience. Their skills are top-notch (4.5/5), availability is excellent (5/5), and communication is strong (4.5/5). A reliable and capable professional to work with.",
-      author: "Araving Gajjela",
+      author: "Araving Gajjela,",
       position: "CEO - APPit & Workisy"
     },
-    // {
-    //   text: "Honestly, I thought AI was out of our league. But their edge-ready posture system transformed our physiotherapy platform. It just works.",
-    //   author: "Dr. Neha Balan",
-    //   position: "Co-founder, MoviThera Health"
-    // }
+    {
+      text: "NeuroStack’s unmatched technical depth in AI is truly impressive. They understood our unique challenges and delivered innovative, scalable solutions faster than expected.",
+      author: "Kishore,",
+      position: " Zrae Global"
+    },
+    {
+      text: "The ASR model integration for our department was completely seamless. Their attention to detail, technical precision, and dedication to accessibility was genuinely remarkable.",
+      author: " Dr. Chandrasekhar,",
+      position: "Linguistics Department, Delhi University"
+    },
+    {
+      text: "A brilliant and dependable partner for AI research projects. Their expertise in fine-tuning models and providing robust, well-documented research support is absolutely invaluable.",
+      author: "Dr. Deepika,",
+      position: " AI Researcher"
+    },
   ];
 
   const achievements = [
     {
       text: "Successfully Delivered 100+ Global GenAI Projects",
+      content:"Partnered with businesses worldwide to build cutting-edge Generative AI solutions tailored to their unique needs.",
       // color: "#0A2647"
     },
     {
       text: "Delivering 12+ GenAI Pipelines Every Month",
+      content:"Building, deploying, and maintaining high-performance AI pipelines for clients across multiple industries."
       // color: "#134886"
     },
     {
       text: "Fine-Tuned the World’s Most Powerful Open-Source Model – DeepSeek V3",
+      content:"Leveraged QLoRA to optimize DeepSeek V3, with only 5 fine-tuned model versions available on Hugging Face."
       // color: "#1C69C4"
     },
     {
       text: "Built an Agentic Legal Document Drafting Suite for AgreeUpon.ai (Canada)",
+      content:"Developed and deployed a scalable AI system serving 25,000+ daily users, transforming legal documentation workflows."
       // color: "rgba(10, 38, 71, 0.10)"
     },
     {
       text: "Distilled & Optimized Vosk Multilingual Automatic Speech Recognition (ASR) Model",
+      content:"Engineered a lightweight, low-compute ASR model for mobile devices for Delhi University’s Department of Acoustics & Vocal Studies."
       // color: "rgba(10, 38, 71, 0.10)"
     },
     {
       text: "Integrated Accessible Speech Analysis into Mobile Applications",
+      content:"Integrated the distilled ASR model into a mobile app and implemented additional features such as pitch analysis, intensity measurement, and voice diagnostics to empower differently-abled individuals."
       // color: "rgba(10, 38, 71, 0.10)"
     },
     {
       text: "Developed WorkEasy India PoC with Advanced Semantic AI Search",
+      content:"Created the Indian proof-of-concept for WorkEasy’s Middle East job platform, featuring a 6-stage semantic AI search algorithm with natural language search capabilities."
       // color: "rgba(10, 38, 71, 0.10)"
     },
     {
       text: "Advanced Research Contributions in Machine Learning",
+      content:"Providing mathematical modeling expertise for ML algorithms, contributing to 18+ research papers monthly through our skilled AI/ML R&D team."
       // color: "rgba(10, 38, 71, 0.10)"
     },
   ];
@@ -560,7 +578,16 @@ const Home = () => {
                   fontFamily: 'sans-serif',
                   fontWeight: "700",
                   lineHeight: "36px",
-                }}>{achievement.text}</div>
+                }}>{achievement.text}
+                <div style={{
+                  fontSize: "20px",
+                  fontFamily: 'sans-serif',
+                  fontWeight: "400",
+                  lineHeight: "36px",
+                  color:"rgba(153, 151, 151, 1)"
+                }}>{achievement.content}</div>
+                </div>
+                
               </motion.div>
             ))}
           </div>
