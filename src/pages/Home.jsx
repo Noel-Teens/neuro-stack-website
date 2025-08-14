@@ -152,13 +152,13 @@ const Home = () => {
   const testimonials = [
     {
       text: "The team is very intelligent and knowledgable, very few have good grip on LLMs and they do have very deep subject knowledge. If given the roadmap clearly at the initial stages they will bring exponential results, otherwise they can also overkill out of the passion towards their work.",
-      author: "ajay shokar",
-      position: "CEO - APPit & Workisy"
+      author: "Ajay Shokar",
+      position: "Jobkart Canada"
     },
     {
       text: "Working with NeuroStack has been a great experience. Their skills are top-notch (4.5/5), availability is excellent (5/5), and communication is strong (4.5/5). A reliable and capable professional to work with.",
       author: "Araving Gajjela",
-      position: "CTO, VizTrack Analytics"
+      position: "CEO - APPit & Workisy"
     },
     // {
     //   text: "Honestly, I thought AI was out of our league. But their edge-ready posture system transformed our physiotherapy platform. It just works.",
@@ -299,7 +299,11 @@ const Home = () => {
           ease: [0.25, 0.46, 0.45, 0.94],
           delay: 0.2
         }}
-        style={{ backgroundImage:`url(${frame2})`, backgroundSize: 'cover'}}
+        style={{
+          backgroundImage: `url(${frame2})`,
+          backgroundSize: 'cover',
+          minHeight: isMobile ? '650px' : 'auto',
+        }}
       >
         <motion.div
           variants={staggerContainer}
@@ -335,7 +339,7 @@ const Home = () => {
 
           <motion.p
             variants={fadeInUp}
-            style={{color:'white',fontSize:'20px'}}
+            style={{color:'white',fontSize:'20px',}}
           >
             Whether you want to transform your existing workflow or launch an AI-native product, we help you move faster — with solutions that are smart, scalable, and production-ready.
           </motion.p>

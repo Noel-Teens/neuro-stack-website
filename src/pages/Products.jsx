@@ -216,8 +216,8 @@ function Products() {
       wordWrap: 'break-word',
     },
     productImage: {
-      width: isMobile ? '150px' : '273px',
-      height: isMobile ? '150px' : '273px',
+    width: isMobile ? '300px' : '273px',
+    height: isMobile ? '250px' : '273px',
       position: isMobile ? 'relative' : 'absolute',
       right: isMobile ? 'auto' : '60px',
       top: isMobile ? 'auto' : '43.50px',
@@ -376,7 +376,7 @@ function Products() {
                 onLoad={() => handleImageLoad(index)}
                 onError={() => handleImageError(index)}
                 style={{
-                  width: '100%',
+                  width:'100%',
                   height: '100%',
                   objectFit: 'cover',
                   objectPosition: 'center',

@@ -92,7 +92,7 @@ function Footer() {
             <h4>Contact</h4>
             <ul>
               <li>
-                <a href="mailto:info@neurostack.in">info@neurostack.in</a>
+                <a href="mailto:neurostackinfo@gmail.com">neurostackinfo@gmail.com</a>
               </li>
               <li>
                 <a href="tel:+916382624227">+91 6382624227</a>
