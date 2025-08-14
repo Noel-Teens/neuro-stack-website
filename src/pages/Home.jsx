@@ -545,7 +545,7 @@ const Home = () => {
           padding: "64px 0",}}>
         <h2 style={{marginLeft: isMobile?"60px" :"600px"}}>Our Achievements</h2>
         <div style={{
-  margin:" 0 auto",
+  margin:" 0 50px 0 0 ",
   padding: "0 20px",
 }}>
           <div ref={achievementsRef}>
@@ -554,11 +554,12 @@ const Home = () => {
                 key={index}
                 className="achievement-item"
                 style={{
-                  display: "flex",
-                  alignItems: "center",
+                  // display: "flex",
+                  alignItems: "start",
                   gap: "20px",
                   marginBottom: "32px",
-                  marginLeft: isMobile?"30px":"122px",
+                  marginRight: isMobile?"30px":"70px",
+                  marginLeft: isMobile?"30px":"122px"
                 }}
                 initial={{ opacity: 0.3 }}
                 animate={{
@@ -572,19 +573,22 @@ const Home = () => {
                   height: "28px",
                   background: "rgb(217, 217, 217)",
                   flexShrink: "0",
+                  marginTop:"7px"
                 }} />
                 <div style={{
                   fontSize: "24px",
                   fontFamily: 'sans-serif',
                   fontWeight: "700",
                   lineHeight: "36px",
+                  
                 }}>{achievement.text}
                 <div style={{
                   fontSize: "20px",
                   fontFamily: 'sans-serif',
                   fontWeight: "400",
                   lineHeight: "36px",
-                  color:"rgba(153, 151, 151, 1)"
+                  color:"rgba(153, 151, 151, 1)",
+                  
                 }}>{achievement.content}</div>
                 </div>
                 
