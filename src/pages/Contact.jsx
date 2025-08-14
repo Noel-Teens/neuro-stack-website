@@ -13,6 +13,32 @@ function Contact() {
     message: ''
   });
 
+  const encode = (data) => {
+    return Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
+  };
+
+  const handleSubmit = (e) => {
+  e.preventDefault();
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({
+      "form-name": "contact",
+      ...formData
+    })
+  }).then(() => {
+      alert("Message sent successfully!");
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        subject: '',
+        message: ''
+      });
+    }).catch(error => alert(error));
+};
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -263,7 +289,12 @@ function Contact() {
             <div style={styles.contactForm}>
               <h2 style={styles.formTitle}>Send Us a Message</h2>
               <p style={styles.formSubtitle}>Tell us about your project and needs</p>
-              <form name="contact" method="POST" data-netlify="true">
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true"
+                onSubmit={handleSubmit}
+                >
                 <input type="hidden" name="form-name" value="contact" />
                 <div style={styles.formGroup}>
                   <label style={styles.label} htmlFor="name">Full Name *</label>
