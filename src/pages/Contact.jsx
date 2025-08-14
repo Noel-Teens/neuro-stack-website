@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react'; // <-- Added useEffect import
+import { useState, useEffect } from 'react';
 import frame4 from "../Assets/frame4.png";
 import frame2 from "../Assets/frame2.png";
 
@@ -14,30 +14,33 @@ function Contact() {
   });
 
   const encode = (data) => {
-    return Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode({
-      "form-name": "contact",
-      ...formData
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        ...formData
+      })
     })
-  }).then(() => {
-      alert("Message sent successfully!");
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        subject: '',
-        message: ''
-      });
-    }).catch(error => alert(error));
-};
+      .then(() => {
+        alert("Message sent successfully!");
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      })
+      .catch(error => alert(error));
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -280,7 +283,7 @@ function Contact() {
                 <div style={styles.infoIcon}>✉️</div>
                 <div style={styles.infoContent}>
                   <h3 style={styles.infoLabel}>Email Us</h3>
-                  <p style={styles.infoText}>info@neurostack.in</p>
+                  <p style={styles.infoText}>neurostackinfo@gmail.com</p>
                 </div>
               </motion.div>
             </div>
@@ -293,9 +296,15 @@ function Contact() {
                 name="contact" 
                 method="POST" 
                 data-netlify="true"
+                data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
-                >
+              >
+                {/* Required hidden inputs for Netlify */}
                 <input type="hidden" name="form-name" value="contact" />
+                <p style={{ display: 'none' }}>
+                  <label>Don’t fill this out: <input name="bot-field" onChange={handleChange} /></label>
+                </p>
+
                 <div style={styles.formGroup}>
                   <label style={styles.label} htmlFor="name">Full Name *</label>
                   <input
@@ -322,6 +331,7 @@ function Contact() {
                     required
                   />
                 </div>
+                
                 <div style={styles.formGroup}>
                   <label style={styles.label} htmlFor="subject">Subject *</label>
                   <input
